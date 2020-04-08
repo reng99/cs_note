@@ -1,6 +1,6 @@
 # CS_NOTE
 
-匯總
+匯總 :100:
 
 ## Quick start
 
