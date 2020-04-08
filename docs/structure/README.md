@@ -1,3 +1,3 @@
 # 數據結構
 
-![banner](_images/structure/banner.jpg)
+![banner](./imgs/banner.jpg)
