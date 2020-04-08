@@ -3,7 +3,7 @@
   padding: 0;
 }
 
-img{
+img[title*="border_img_"]{
   display: block;
   border: 1px solid rgba(0, 0, 0, 0.07);
 }
