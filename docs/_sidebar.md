@@ -3,5 +3,8 @@
   * [棧](/structure/stack.md)
   * [隊列](/structure/queue.md)
   * [鏈錶](/structure/linked_list.md)
+  * [字典](/structure/dictionary.md)
+  * [集合](/structure/set.md)
+  * [哈希表/散列表](/structure/hash.md)
   
 * [算法](/algorithm/README.md)

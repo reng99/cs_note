@@ -1,6 +1,6 @@
 # 鏈錶
 
-![array](./imgs/linked_list.jpg "border_img_linked_list")
+![linked_list](./imgs/linked_list.jpg "border_img_linked_list")
 
 在進入正題之前，我們先來聊聊數組的優缺點。
 

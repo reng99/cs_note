@@ -1,6 +1,6 @@
 # 隊列
 
-![array](./imgs/queue.jpg "border_img_queue")
+![queue](./imgs/queue.jpg "border_img_queue")
 
 **隊列**是一種先進先出(FIFO)受限的線性表。受限體現於其允許在表的前端（front，隊首）進行刪除操作，在表的末尾（rear，隊尾）進行插入操作。
 
