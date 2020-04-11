@@ -6,5 +6,7 @@
   * [字典](/structure/dictionary.md)
   * [集合](/structure/set.md)
   * [哈希表/散列表](/structure/hash.md)
+  * [二叉查找樹](/structure/bst.md)
+  * [圖](/structure/graph.md)
   
 * [算法](/algorithm/README.md)
