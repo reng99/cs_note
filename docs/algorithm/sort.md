@@ -228,3 +228,42 @@ shellSort() {
 
 **原理：**
 
+`快速排序`是一種**分而治之（分治）**的算法，通過遞歸的方式將數據依次分解為包含較小元素和較大元素的不同子序列，然後不斷重複這個步驟，直到所有的數據都是有序的。
+
+可以更清晰地表達`快速排序`算法的步驟如下：
+
+1. 選擇一個基準元素**（pivot，樞紐）**，將列表分隔為兩個子序列
+2. 對列表重新排列，將所有小於基準值的元素放在基準值的前面，將所有大於基準值的元素放在基準值的後面
+3. 分別對較小元素的子序列和較大元素的子序列重複步驟`1和2`
+
+![quick](./imgs/quick.gif "border_img_quick")
+
+我們來用代碼實現下：
+
+```javascript
+// 快速排序
+quickSort() {
+  this.arr = this.quickAux(this.arr)
+}
+
+// aux函數 - 快排的輔助函數
+quickAux(arr) {
+  let numElements = arr.length；
+  if(numElements === 0) {
+    return []
+  }
+  let left = [],
+    right = [],
+    pivot = arr[0]; // 取數組的第一個元素作為基準值
+  for(let i = 1; i < numElements; i++) {
+    if(arr[i] < pivot) {
+      left.push(arr[i]);
+    } else {
+      right.push(arr[i]);
+    }
+  }
+  return this.quickAux(left).concat(pivot, this.quickAux(right));
+}
+```
+
+以上介紹了六種排序的算法，當然還有很多其他的排序算法，你可以到[視屏 | 手撕九大經典排序算法，看我就夠了!](https://zhuanlan.zhihu.com/p/52884590)文章中查看。
