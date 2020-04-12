@@ -12,3 +12,4 @@
 * [算法](/algorithm/README.md)
   * [排序算法](/algorithm/sort.md)
   * [搜索算法](/algorithm/search.md)
+  * [時間複雜度](/algorithm/time_complexity.md)
