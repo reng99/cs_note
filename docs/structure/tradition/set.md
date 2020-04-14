@@ -2,9 +2,9 @@
 
 ![set](./imgs/set.jpg "border_img_set")
 
-**集合**通常是一组无序的，不能重複的元素构成。一些常见的集合操作有`交集、子集、并集和补集`。
+**集合**通常是一組無序的，不能重複的元素構成。一些常見的集合操作有`交集、子集、並集和補集`。
 
-`es6`中已经封装好了可用的[Set类](http://es6.ruanyifeng.com/#docs/set-map)。下面，我们来动手写下相关的逻辑。
+`es6`中已經封裝好了可用的[Set類](http://es6.ruanyifeng.com/#docs/set-map)。下面，我們來動手寫下相關的邏輯。
 
 ```javascript
 class Set {
@@ -33,7 +33,7 @@ class Set {
   show(){
     return this.items.join(' ');
   }
-  // 移除某个元素
+  // 移除某個元素
   remove(element){
     let pos = this.items.indexOf(element);
     if(pos < 0) return false;
@@ -41,9 +41,9 @@ class Set {
     return true;
   }
   /**
-  * @method union 并集
-  * @param { Array } set 数组集合
-  * @return { Object } 返回并集的对象
+  * @method union 並集
+  * @param { Array } set 數組集合
+  * @return { Object } 返回並集的對象
   */
   union(set = []){
     let tempSet = new Set();
@@ -58,8 +58,8 @@ class Set {
   }
   /**
   * @method intersect 交集
-  * @param { Array } set 数组集合
-  * @return { Object } 返回交集对象
+  * @param { Array } set 數組集合
+  * @return { Object } 返回交集對象
   */
   intersect(set = []){
     let tempSet = new Set();
@@ -72,7 +72,7 @@ class Set {
   }
   /**
   * @method isSubsetOf 【A】是【B】的子集？
-  * @param { Array } set 数组集合
+  * @param { Array } set 數組集合
   * @return { Boolean } 真假值
   */
   isSubsetOf(set = []){
@@ -85,22 +85,22 @@ class Set {
 }
 
 let set = new Set(),
-  arr = ['鼠', '牛', '虎', '兔', '龙', '蛇', '马', '羊', '猴'];
+  arr = ['鼠', '牛', '虎', '兔', '龍', '蛇', '馬', '羊', '猴'];
 arr.forEach(item => {
   set.add(item);
 });
-console.log(set.show()); // 鼠 牛 虎 兔 龙 蛇 马 羊 猴
-console.log(set.has('猪')); // false
+console.log(set.show()); // 鼠 牛 虎 兔 龍 蛇 馬 羊 猴
+console.log(set.has('豬')); // false
 console.log(set.size()); // 9
 set.remove('鼠');
-console.log(set.show()); // 牛 虎 兔 龙 蛇 马 羊 猴
+console.log(set.show()); // 牛 虎 兔 龍 蛇 馬 羊 猴
 
 let setAnother = new Set(),
-  anotherArr = ['马', '羊', '猴', '鸡', '狗', '猪'];
+  anotherArr = ['馬', '羊', '猴', '雞', '狗', '豬'];
 anotherArr.forEach(item => {
   setAnother.add(item);
 });
-console.log(set.union(setAnother).show()); // 牛 虎 兔 龙 蛇 马 羊 猴 鸡 狗 猪
-console.log(set.intersect(setAnother).show()); // 马 羊 猴
+console.log(set.union(setAnother).show()); // 牛 虎 兔 龍 蛇 馬 羊 猴 雞 狗 豬
+console.log(set.intersect(setAnother).show()); // 馬 羊 猴
 console.log(set.isSubsetOf(setAnother)); // false
 ```
