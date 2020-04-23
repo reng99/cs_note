@@ -1,6 +1,6 @@
 # CS_NOTE
 
-汇总 :100:
+匯總 :100:
 
 ## Quick start
 

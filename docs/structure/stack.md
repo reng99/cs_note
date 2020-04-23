@@ -1,67 +1,67 @@
-# 栈
+# 棧
 
 ![stack](./imgs/stack.jpg "border_img_stack")
 
-栈是一种后进先出(LIFO)线性表，是一种基于数组的数据结构。
+棧是一種後進先出(LIFO)線性表，是一種基於數組的數據結構。
 
-- **LIFO(Last In First Out)**表示后进先出，后进来的元素第一个被弹出栈空间。类似于自动餐托盘，最后放上去的托盘，往往先被拿出来使用。
+- **LIFO(Last In First Out)**表示後進先出，後進來的元素第一個被彈出棧空間。類似於自動餐托盤，最後放上去的托盤，往往先被拿出來使用。
 
-- 仅允许在表的一端插入和移除数据。这一端被称为**栈顶**，相对地，把另一端称为**栈底**。
+- 僅允許在表的一端插入和移除數據。這一端被稱為**棧頂**，相對地，把另一端稱為**棧底**。
 
-- 向一个栈插入新数据称为**进栈、入栈或压栈**，这是将新元素放在栈顶元素上面，使之成为新的栈顶元素。
+- 向一個棧插入新數據稱為**進棧、入棧或壓棧**，這是將新元素放在棧頂元素上面，使之成為新的棧頂元素。
 
-- 从一个栈删除元素又称为**出栈或退栈**，它是把栈顶元素删除掉，使其相邻的元素成为新的栈顶元素。
+- 從一個棧刪除元素又稱為**出棧或退棧**，它是把棧頂元素刪除掉，使其相鄰的元素成為新的棧頂元素。
 
-代码操作熟悉下：
+代碼操作熟悉下：
 
 ```javascript
 class Stack {
   constructor(){
     this.items = [];
   }
-  // 入栈操作
+  // 入棧操作
   push(element = ''){
     if(!element) return;
     this.items.push(element);
     return this;
   }
-  // 出栈操作
+  // 出棧操作
   pop(){
     this.items.pop();
     return this;
   }
-  // 栈顶元素
+  // 棧頂元素
   peek(){
     return this.items[this.size() - 1];
   }
-  // 输出
+  // 輸出
   print(){
     return this.items.join(' ');
   }
-  // 是否空栈
+  // 是否空棧
   isEmpty(){
     return this.items.length == 0;
   }
-  // 栈的大小
+  // 棧的大小
   size(){
     return this.items.length;
   }
 }
 
 let stack = new Stack(),
-  arr = ['鼠', '牛', '虎', '兔', '龙', '蛇', '马', '羊', '猴', '鸡', '狗', '猪'];
+  arr = ['鼠', '牛', '虎', '兔', '龍', '蛇', '馬', '羊', '猴', '雞', '狗', '豬'];
 arr.forEach(item => {
   stack.push(item);
 });
 
-console.log(stack.print()); // 鼠 牛 虎 兔 龙 蛇 马 羊 猴 鸡 狗 猪
-console.log(stack.peek()); // 猪
+console.log(stack.print()); // 鼠 牛 虎 兔 龍 蛇 馬 羊 猴 雞 狗 豬
+console.log(stack.peek()); // 豬
 
 stack.pop().pop().pop().pop();
-console.log(stack.print()); // 鼠 牛 虎 兔 龙 蛇 马 羊
+console.log(stack.print()); // 鼠 牛 虎 兔 龍 蛇 馬 羊
 console.log(stack.isEmpty()); // false
 console.log(stack.size()); // 8
 ```
 
-> :warning: 栈这裡的`push`和`pop`方法要和数组裡面的`push`和`pop`方法区分下。
+> :warning: 棧這裡的`push`和`pop`方法要和數組裡面的`push`和`pop`方法區分下。
 
