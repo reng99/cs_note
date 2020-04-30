@@ -1,0 +1,3 @@
+# JAVASCRIPT魔法
+
+實際場景中使用的比较频繁的`JAVASCRIPT TRICK`。

@@ -13,3 +13,7 @@
   * [排序算法](/algorithm/sort.md)
   * [搜索算法](/algorithm/search.md)
   * [時間複雜度](/algorithm/time_complexity.md)
+
+* [CSS魔法](/css/README.md)
+
+* [JAVASCRIPT魔法](/javascript/README.md)
