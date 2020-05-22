@@ -5,7 +5,7 @@
 目錄如下：
 
 - <a href="#/vue/README?id=slot插槽">slot插槽</a>
-- 
+- <a href="#/vue/README?id=watch監聽">watch監聽</a>
 
 ## slot插槽
 
@@ -42,6 +42,37 @@ export default {
   components: {
     SlotComponent
   }
+}
+</script>
+```
+
+## watch監聽
+
+當值發生變動的時候，你可以通過`watch`對數據進行處理。
+
+```vue
+<template>
+  <div>
+    <input v-model="data" />
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'watch',
+  data() {
+    return {
+      data: ""
+    }
+  },
+  watch: {
+    data: {
+      handler: function(newVal, oldVal) {
+        console.log('new val -> ', newVal, ' old val -> ', oldVal)
+      },
+      deep: true
+    }
+  },
 }
 </script>
 ```
