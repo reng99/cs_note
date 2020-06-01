@@ -5,7 +5,7 @@
 場景的目錄如下：
 
 - <a href="#/javascript/README?id=複製文本">複製文本</a>
-- 
+- <a href="#/javascript/README?id=文件上傳">文件上傳</a>
 
 ## 複製文本
 
@@ -98,3 +98,49 @@ export default{
 
 
 推薦第二種方式實現！
+
+## 文件上傳
+
+文件上傳，分為單文件上傳和多文件上傳。
+
+單文件的上傳比較簡單。這裡只是多文件上傳的實現：
+
+```vue
+<template>
+  <a-upload :fileList="fileList" multiple :beforeUpload="() => { return false}" @change="handleChange">
+    <a-button type="primary" icon="upload" style="width: 140px;">請選擇</a-button>
+  </a-upload>
+  <a-button type="primary" @click="upload">上傳</a-button>
+</template>
+<script>
+export default {
+  data() {
+    return {
+      fileList: []
+    }
+  },
+  methods: {
+    // 上傳
+    upload() {
+      const { fileList } = this
+      if(fileList.length === 0) {
+        this.$message.warning('請選擇上傳文件！')
+        return
+      }
+      const formData = new FormData()
+      fileList.map(file => {
+        formData.append("file", file.originFileObj) // append 後的 file 可以跟後端約定一個字段，不一定是file
+      })
+      formData.append("type", "demo") // 其他的字段也是通過append添加
+      // 之後 api 調用
+    },
+    // 文件發生改變
+    handleChange({ fileList }) {
+      this.fileList = fileList
+    }
+  }
+}
+</script>
+```
+
+當然，單文件上傳通過遍歷接口調用也是可以實現多文件上傳的效果~
