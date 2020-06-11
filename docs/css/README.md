@@ -6,6 +6,7 @@
 
 - <a href="#/css/README?id=文本溢出隱藏">文本溢出隱藏</a>
 - <a href="#/css/README?id=滾動條美化">滾動條美化</a>
+- <a href="#/css/README?id=css等高限制">css等高限制</a>
 
 ## 文本溢出隱藏
 
@@ -59,5 +60,34 @@
     border-radius: 10px;
     background: #EDEDED;
   }
+}
+```
+
+## css等高限制
+
+同級的`div`因為不同的高度會造成排版的參差不齊。可以通過下面的樣式來解決。
+
+```vue
+<template>
+  <div>
+    <a-row v-if="return_mode_detail.info" style="margin-top: 30px; display: flex; flex-wrap: wrap;">
+      <a-col :xs="24" :md="12" :lg="8" v-for="(item, index) in JSON.parse(return_mode_detail.info)" :key="index">
+        <div class="return_mode_item">
+          <a-avatar :style="{ backgroundColor: 'red', verticalAlign: 'middle' }" class="serial">{{index+1}}</a-avatar>
+          <div class="title">{{item.title}}</div>
+          <div class="intro">{{item.intro}}</div>
+        </div>
+      </a-col>
+    </a-row>
+  </div>
+</template>
+```
+
+重點的樣式如下：
+
+```css
+.parent{
+  display: flex;
+  flex-wrap: wrap;
 }
 ```
