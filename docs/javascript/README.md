@@ -7,6 +7,7 @@
 - <a href="#/javascript/README?id=複製文本">複製文本</a>
 - <a href="#/javascript/README?id=文件上傳">文件上傳</a>
 - <a href="#/javascript/README?id=數組中數字和字符串快速轉換">數組中數字和字符串快速轉換</a>
+- <a href="#/javascript/README?id=生成UUID">生成UUID</a>
 
 ## 複製文本
 
@@ -157,3 +158,33 @@ arr.map(String);  // ['1', '2', '3', '4', '5', '6', '7', '8', '9']
 const a = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
 a.map(Number);  // [1, 2, 3, 4, 5, 6, 7, 8, 9]
 ```
+
+## 生成UUID
+
+`482363e9-9191-35a7-8fb0-9a7236d18e86`
+
+[UUID的維基百科](https://zh.wikipedia.org/wiki/%E9%80%9A%E7%94%A8%E5%94%AF%E4%B8%80%E8%AF%86%E5%88%AB%E7%A0%81)
+
+通用唯一識別碼（英文：Universally Unique Identifier，縮寫：UUID）是用於計算機體系中以識別信息數目的一個128位標誌符，還有相關的術語：全局唯一標誌符（GUID）
+
+UUID是由一組**32位數的16進制**數字構成，故UUID理論上的總數是`1632=2128`，約等於`3.4 x 1038`，也就是說每納秒`(ns)`產生`1萬億`個UUID，要花`100億年`才會用完所有的UUID。
+
+代碼實現如下：
+
+```javascript
+function S4() {
+  return (((1+Math.random())*0x10000)|0).toString(16).substring(1); 
+  // 0x10000 16進制65536  
+  // ((1+Math.random())*0x10000)|0為或運算，取整
+  // toString(16)轉成16進制的字符串
+  // substring(1)從第二位開始截取字符
+}
+function guid() {
+  return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4());
+}
+
+// 直接調用
+guid()
+```
+
+
