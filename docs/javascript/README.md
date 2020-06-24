@@ -8,6 +8,7 @@
 - <a href="#/javascript/README?id=文件上傳">文件上傳</a>
 - <a href="#/javascript/README?id=數組中數字和字符串快速轉換">數組中數字和字符串快速轉換</a>
 - <a href="#/javascript/README?id=生成UUID">生成UUID</a>
+- <a href="#/javascript/README?id=格式化數字成金額格式">格式化數字成金額格式</a>
 
 ## 複製文本
 
@@ -187,4 +188,27 @@ function guid() {
 guid()
 ```
 
+## 格式化數字成金額格式
 
+在`Number`的原型上操作：
+
+```javascript
+Number.prototype.numberFormat = function(tail, decimal, thousand) {
+  let n = this;
+  let c = isNaN(tail = Math.abs(tail)) ? 2 : tail;
+  let d = decimal == undefined ? "." : decimal;
+  let t = thousand == undefined ? "," : thousand;
+  let s = n < 0 ? "-" : "",
+    i = String(parseInt(n = Math.abs(Number(n) || 0).toFixed(2))),
+    j = (j = i.length) > 3 ? j % 3 : 0
+    return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
+}
+```
+
+函數有三個參數，分別說明如下：
+
+`tail` => 小數點後面有幾位（四捨五入到指定的位數）
+
+`decimal` => 小數點符號（.），把它作為參數，是因為你可以自己指定所需的符號。
+
+`thousand` => 千分位符號（,），也就是格式化成`12,345.67`的逗號，你可以設置成你需要的符號。
