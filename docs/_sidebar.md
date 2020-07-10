@@ -14,6 +14,9 @@
   * [搜索算法](/algorithm/search.md)
   * [時間複雜度](/algorithm/time_complexity.md)
 
+* [HTML魔法](/html/README.md)
+  * [HTML相關概念](/html/concept.md)
+
 * [CSS魔法](/css/README.md)
 
 * [JAVASCRIPT魔法](/javascript/README.md)
