@@ -1,6 +1,7 @@
 # ECHART魔法
 
 - <a href="#/echart/README?id=圖表自適應">圖表自適應</a>
+- <a href="#/echart/README?id=圖表強制更新">圖表強制更新</a>
 
 ## 圖表自適應
 
@@ -57,6 +58,32 @@ export default {
         vm.three_col_width = Math.floor((vm.container_width - 15) / 3)
       })
     },
+  }
+}
+</script>
+```
+
+## 圖表強制更新
+
+當數據改變的時候，圖表沒有更新。那麼可以設置`setOption`方法的第二個參數值為`true`即可。
+
+如下：
+
+```vue
+<script>
+export default {
+  name: 'set-options',
+  methods: {
+    fetchData(index) {
+      let vm = this
+      // 具體代碼
+      // ...
+      // 關鍵代碼
+      vm.$nextTick(function(){
+        const myChart = vm.$echarts.init(document.getElementById(`E_bar${index}`))
+        myChart.setOption(option, true) // 設置為true強制刷新
+      })
+    }
   }
 }
 </script>
