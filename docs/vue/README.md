@@ -6,6 +6,7 @@
 
 - <a href="#/vue/README?id=slot插槽">slot插槽</a>
 - <a href="#/vue/README?id=watch監聽">watch監聽</a>
+- <a href="#/vue/README?id=獲取div的高度">獲取div的高度</a>
 
 ## slot插槽
 
@@ -73,6 +74,50 @@ export default {
       deep: true
     }
   },
+}
+</script>
+```
+
+## 獲取div的高度
+
+`vue`中需要獲取元素的高度，我們可以通過下面的方式獲取。
+
+```vue
+<template>
+  <a-row>
+    <a-col :md="6">
+      <a-row class="catalogue scrollbar" :style="{maxHeight: `${treeHeight}px`}">
+        <!--something here-->
+      </a-row>
+    </a-col>
+    <a-col :md="18">
+      <a-row ref="mainContent">
+        <!--something here-->
+      </a-row>
+    </a-col>
+  </a-row>
+</template>
+
+<script>
+export default {
+  name: 'demo',
+  data() {
+    treeHeight: 600,
+  },
+  methods: {
+    // 看情況獲取相關方法中對應元素的高度
+  },
+  mounted() {
+    let vm = this
+    vm.$nextTick(() => {
+      const height = vm.$refs.mainContent.$el.clientHeight
+      if(height && height > 600) {
+        vm.treeHeight = height
+      } else{
+        vm.treeHeight = 600
+      }
+    })
+  }
 }
 </script>
 ```
