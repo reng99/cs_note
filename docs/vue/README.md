@@ -7,6 +7,7 @@
 - <a href="#/vue/README?id=slot插槽">slot插槽</a>
 - <a href="#/vue/README?id=watch監聽">watch監聽</a>
 - <a href="#/vue/README?id=獲取div的高度">獲取div的高度</a>
+- <a href="#/vue/README?id=判斷內容是否溢出">判斷內容是否溢出</a>
 
 ## slot插槽
 
@@ -120,4 +121,55 @@ export default {
   }
 }
 </script>
+```
+
+## 判斷內容是否溢出
+
+溢出的判斷，是比較滾動的寬度和容器的寬度進行對比，也就是：
+
+```javascript
+el.clientWidth < el.scrollWidth
+```
+
+具體的實現我封裝成了一個組件，如下：
+
+```javascript
+<template>
+  <div class="ellipsis_comp">
+    <a-tooltip :title="isEllipsis ? data.slice(data.indexOf('</b>')+4) : ''">
+      <p :class="[isEllipsis ? 'ellipsis' : '']" ref="ellipsis" v-html="data" />
+    </a-tooltip>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'ellipsis',
+  data() {
+    return {
+      isEllipsis: false
+    }
+  },
+  props: {
+    data: String
+  },
+  methods: {},
+  mounted() {
+    this.$nextTick(() => {
+      const el = this.$refs.ellipsis
+      this.isEllipsis = el.clientWidth < el.scrollWidth
+    })
+  }
+}
+</script>
+
+<style lang="less" scoped>
+.ellipsis_comp{
+  .ellipsis{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+</style>
 ```
