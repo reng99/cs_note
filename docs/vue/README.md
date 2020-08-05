@@ -8,6 +8,7 @@
 - <a href="#/vue/README?id=watch監聽">watch監聽</a>
 - <a href="#/vue/README?id=獲取div的高度">獲取div的高度</a>
 - <a href="#/vue/README?id=判斷內容是否溢出">判斷內容是否溢出</a>
+- <a href="#/vue/README?id=阻止事件冒泡">阻止事件冒泡</a>
 
 ## slot插槽
 
@@ -172,4 +173,22 @@ export default {
   }
 }
 </style>
+```
+
+## 阻止事件冒泡
+
+這裡的阻止事件冒泡並非原生的，是`vue`提供的，感興趣可以看看`preventDefault`、`stopPropagation`和`return false`等。
+
+- stop 阻止冒泡事件，對標`stopPropagation`
+
+- prevent 阻止系統的默認事件，對標`preventDefault`
+
+- once 只添加一次事件
+
+```vue
+<template>
+  <div @click.prevent.stop.once="method">
+    content
+  </div>
+</template>
 ```
