@@ -68,7 +68,7 @@ console.log(myCounter);
 </details>
 <hr/>
 
-### 2、輸出是什麼？
+### 3、輸出是什麼？
 
 ```javascript
 function compareMembers(person1, person2 = person) {
@@ -105,4 +105,37 @@ compareMembers(person)
 </details>
 <hr/>
 
+### 4、輸出是什麼？
+
+```javascript
+function getFine(speed, amount) {
+  const formattedSpeed = new Intl.NumberFormat({
+    'en-US',
+    { style: 'unit', unit: 'mile-per-hour' }
+  }).format(speed)
+
+  const formattedAmount = new Intl.NumberFormat({
+    'en-US',
+    { style: 'currency', currency: 'USD' }
+  }).format(amount)
+
+  return `The driver drove ${formattedSpeed} and has to pay ${formattedAmount}`
+}
+
+console.log(getFine(130, 300))
+```
+
+- A: The driver drove 130 and has to pay 300
+- B: The driver drove 130 mph and has to pay $300.00
+- C: The driver drove undefined and has to pay undefined
+- D: The driver drove 130.00 and has to pay 300.00
+
+<details>
+<summary>答案</summary>
+
+**答案：B**
+
+通過方法`Intl.NumberFormat`，我們可以格式化任意區域數字值。我們對數字值`130`進行`mile-per-hour`作為`unit`的`en-US`區域格式化，結果為`130mph`。對數字值`300`進行`USD`作為`currentcy`的`en-US`區域格式化，結果為`$300.00`。
+</details>
+<hr/>
 
