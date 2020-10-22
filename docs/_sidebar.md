@@ -21,6 +21,8 @@
 
 * [JAVASCRIPT魔法](/javascript/README.md)
 
+* [JAVASCRIPT問題](/javascript/question.md)
+
 * [VUE魔法](/vue/README.md)
 
 * [ECHART魔法](/echart/README.md)
