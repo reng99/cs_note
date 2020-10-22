@@ -68,3 +68,41 @@ console.log(myCounter);
 </details>
 <hr/>
 
+### 2、輸出是什麼？
+
+```javascript
+function compareMembers(person1, person2 = person) {
+  if (person1 !== person2) {
+    console.log("Not the same!")
+  } else {
+    console.log("They are the same!")
+  }
+}
+
+const person = { name: "Lydia" }
+
+compareMembers(person)
+```
+
+- A: `Not the same!`
+- B: `They are the same!`
+- C: `ReferenceError`
+- D: `SyntaxError`
+
+<details>
+<summary>答案</summary>
+
+**答案：B**
+
+對象通過引用傳遞。當我們檢查對象的嚴格相等性（===）時，我們正在比較他們的引用。
+
+我們將`person2`的默認值設置為`person`對象，並將`person`對象作為`person1`的值傳遞。
+
+這意味著兩個值都引用內存中的同一位置，因此它們是相等的。
+
+運行`else`語句中的代碼塊，並記錄`They are the same!`。
+
+</details>
+<hr/>
+
+
