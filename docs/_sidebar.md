@@ -26,3 +26,6 @@
 * [VUE魔法](/vue/README.md)
 
 * [ECHART魔法](/echart/README.md)
+
+* [完善知識點](/complete/README.md)
+  * [AMD / CMD](/complete/amd_cmd.md)
