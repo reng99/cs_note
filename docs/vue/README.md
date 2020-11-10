@@ -9,6 +9,7 @@
 - <a href="#/vue/README?id=獲取div的高度">獲取div的高度</a>
 - <a href="#/vue/README?id=判斷內容是否溢出">判斷內容是否溢出</a>
 - <a href="#/vue/README?id=阻止事件冒泡">阻止事件冒泡</a>
+- <a href="#/vue/README?id=directive指令">directive指令</a>
 
 ## slot插槽
 
@@ -192,3 +193,61 @@ export default {
   </div>
 </template>
 ```
+
+## directive指令
+
+`directive`指令可以全局載入，也可以局部組件載入：
+
+> 詳情見[官網](https://cn.vuejs.org/v2/guide/custom-directive.html)
+
+### 全局載入
+
+比如：
+
+```javascript
+// 註冊一個全局自定義指令 'v-focus'
+Vue.directive('focus', {
+  // 當被綁定的元素插入到 DOM 中時...
+  inserted: function(el) {
+    // 聚焦元素
+    el.focus()
+  }
+})
+```
+
+```html
+<input v-focus />
+```
+
+### 局部載入
+
+比如：
+
+```javascript
+directives: {
+  focus: {
+    // 指令的定義
+    inserted: function(el) {
+      el.focus()
+    }
+  }
+}
+```
+
+```html
+<input v-focus />
+```
+
+### 鉤子函數
+
+一個指令自定義對象可以提供如下的幾個鉤子函數（均為可選）：
+
+- `bind`: 只調用一次，指令第一次綁定到元素時調用。這裡可以進行一次性的初始化設置。
+
+- `inserted`：被綁定元素插入父節點時調用（僅保證父節點存在，但不一定已被插入文檔中）。
+
+- `update`：所有組件的VNode更新時調用，**但是可能發生在其子VNode更新之前**。
+
+- `componentUpdated`：指令所在的組件的VNode**及其子**VNode全部更新後調用。
+
+- `unbind`：只調用一次，指令和其元素解綁時調用
