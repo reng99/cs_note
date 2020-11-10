@@ -10,6 +10,7 @@
 - <a href="#/vue/README?id=判斷內容是否溢出">判斷內容是否溢出</a>
 - <a href="#/vue/README?id=阻止事件冒泡">阻止事件冒泡</a>
 - <a href="#/vue/README?id=directive指令">directive指令</a>
+- <a href="#/vue/README?id=delimiters分割符">delimiters分割符</a>
 
 ## slot插槽
 
@@ -251,3 +252,14 @@ directives: {
 - `componentUpdated`：指令所在的組件的VNode**及其子**VNode全部更新後調用。
 
 - `unbind`：只調用一次，指令和其元素解綁時調用
+
+## delimiters分割符
+
+`VUE`默認是`{{}}`的分隔符，即默認值為`["{{", "}}"]`。可以進行修改，如下：
+
+```javascript
+new Vue({
+  delimiters: ["${", "}"]
+})
+```
+不過修改這種既定的分隔符意義不大~
